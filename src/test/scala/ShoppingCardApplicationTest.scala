@@ -3,7 +3,7 @@ import model.Product
 import org.scalatest.GivenWhenThen
 import org.scalatest.funspec.AnyFunSpec
 
-class AssignmentTest extends AnyFunSpec with GivenWhenThen{
+class ShoppingCardApplicationTest extends AnyFunSpec with GivenWhenThen{
   var card: ShoppingCard = _
 
  describe("A shopping card application") {
