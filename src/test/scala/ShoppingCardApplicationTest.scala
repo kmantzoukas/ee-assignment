@@ -3,6 +3,8 @@ import model.Product
 import org.scalatest.GivenWhenThen
 import org.scalatest.funspec.AnyFunSpec
 
+import scala.math.BigDecimal.RoundingMode
+
 class ShoppingCardApplicationTest extends AnyFunSpec with GivenWhenThen{
   var card: ShoppingCard = _
 
@@ -29,6 +31,6 @@ class ShoppingCardApplicationTest extends AnyFunSpec with GivenWhenThen{
   }
 
    def computeTotal(products: Seq[Product]): BigDecimal =
-    products.foldLeft(BigDecimal(0.00))((c,p) => c + p.price)
+    products.foldLeft(BigDecimal(0.00))((c,p) => c + p.price).setScale(2, RoundingMode.HALF_EVEN)
  }
 }
