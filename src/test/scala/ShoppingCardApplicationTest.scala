@@ -6,13 +6,12 @@ import org.scalatest.funspec.AnyFunSpec
 import scala.math.BigDecimal.RoundingMode
 
 class ShoppingCardApplicationTest extends AnyFunSpec with GivenWhenThen{
-  var card: ShoppingCard = _
 
  describe("A shopping card application") {
 
    it("should allow the addition of new products in the shopping card"){
 
-    val shoppingCardApplication = new ShoppingCardApplication(ShoppingCard())
+    val shoppingCardApplication = new ShoppingCardApplication(ShoppingCard.apply())
 
     Given("An empty shopping card and a product, Dove Soap with a unit price of 39.99")
     val product = Product("Dove Soap", 39.99)
