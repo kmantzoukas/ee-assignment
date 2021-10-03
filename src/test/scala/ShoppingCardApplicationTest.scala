@@ -19,7 +19,7 @@ class ShoppingCardApplicationTest extends AnyFunSpec with GivenWhenThen{
     When("The user adds 5 Dove Soaps to the shopping cart")
     shoppingCardApplication.addProductsToCard(product, 5)
 
-    Then("The shopping cart should contain 5 Dove Soaps each with a unit price of 39.9")
+    Then("The shopping cart should contain 5 Dove Soaps each with a unit price of 39.99")
     assert(shoppingCardApplication.card.products.size == 5)
     shoppingCardApplication.card.products.foreach(p => assert(p == product))
 
