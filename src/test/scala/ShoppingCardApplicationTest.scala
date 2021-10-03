@@ -19,12 +19,15 @@ class ShoppingCardApplicationTest extends AnyFunSpec with GivenWhenThen{
     When("The user adds 5 Dove Soaps to the shopping cart")
     shoppingCardApplication.addProductsToCard(product, 5)
 
-    Then("The shopping cart should contain 5 Dove Soaps each with a unit price of 39.99")
-    assert(shoppingCardApplication.card.products.size == 5)
-    shoppingCardApplication.card.products.foreach(p => assert(p == product))
+    When("The user adds 3 Dove Soaps to the shopping cart")
+    shoppingCardApplication.addProductsToCard(product, 3)
 
-    And("The shopping cart’s total price should equal 199.95")
-    assert(computeTotal(shoppingCardApplication.card.products) == BigDecimal(199.95))
+    Then("The shopping cart should contain 8 Dove Soaps each with a unit price of 39.99")
+    assert(shoppingCardApplication.card.products.size == 8)
+    shoppingCardApplication.card.products.foreach(p => assert(p.price == 39.99))
+
+    And("The shopping cart’s total price should equal 319.92")
+    assert(computeTotal(shoppingCardApplication.card.products) == BigDecimal(319.92))
   }
 
     def computeTotal(products: Seq[Product]): BigDecimal =
